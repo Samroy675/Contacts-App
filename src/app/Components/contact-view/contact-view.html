@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h4>Details of {{foundContact.contactName}}</h4>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="mb-3">
+          <input type="text" id="contactId" class="form-control" [(ngModel)] = "foundContact.contactId" name="contactId" readonly>
+        </div>
+
+        <div class="mb-3">
+          <input type="text" id="name" class="form-control" [(ngModel)] = "foundContact.contactName" name="name" readonly>
+        </div>
+
+        <div class="mb-3">
+          <input type="tel" id="phoneNo" class="form-control" [(ngModel)] = "foundContact.contactPhoneNo" name="phoneNo" readonly>
+        </div>
+
+        <div class="mb-3">
+          <input type="url" id="photoUrl" class="form-control" [(ngModel)] = "foundContact.contactPhoto" name="photoUrl" readonly>
+        </div>
+
+        <button type="button" class="btn btn-secondary me-2" routerLink="/contacts/viewall">
+          Back
+          <i class="fa fa-back"></i>
+        </button>
+      </form>
+    </div>
+  </div>
