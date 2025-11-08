@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h4>Add New Contact</h4>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <input type="text" id="name" class="form-control" placeholder="Enter your Name" required
+            [(ngModel)]="foundContact.contactName" name="name">
+        </div>
+
+        <div class="mb-3">
+          <input type="tel" id="phoneNo" class="form-control" placeholder="Enter your Phone No" required
+            [(ngModel)]="foundContact.contactPhoneNo" name="phoneNo">
+        </div>
+
+        <div class="mb-3">
+          <input type="url" id="photoUrl" class="form-control" placeholder="Enter your Photo Url"
+            [(ngModel)]="foundContact.contactPhoto" name="photoUrl">
+        </div>
+
+        <button type="submit" class="btn btn-success me-2">Insert</button>
+        <button type="button" class="btn btn-secondary me-2" routerLink="/contacts/viewall">Back</button>
+      </form>
+    </div>
+  </div>

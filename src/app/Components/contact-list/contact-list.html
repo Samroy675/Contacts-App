@@ -1,0 +1,59 @@
+<div class="container py-4">
+
+  <div class="container py-4">
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-6 col-lg-4">
+      <div class="input-group shadow-sm">
+        <span class="input-group-text bg-primary text-white">
+          <i class="fa fa-search"></i>
+        </span>
+        <input
+          type="search"
+          [(ngModel)]="searchCriteria"
+          name="searchCriteria"
+          class="form-control"
+          placeholder="Search contacts..."
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="row">
+    <ng-container *ngFor="let cts of contactList | contactFilter : searchCriteria">
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">{{ cts.contactName }}</h5>
+          </div>
+          <div class="card-body">
+            <div class="d-flex align-items-start">
+              <img [src]="cts.contactPhoto" class="img-fluid rounded me-3" alt="{{ cts.contactName }}"
+                style="width: 100px; height: 100px; object-fit: cover;" />
+              <div class="flex-grow-1">
+                <p class="mb-2"><strong>ID:</strong> {{ cts.contactId }}</p>
+                <p class="mb-2"><strong>Name:</strong> {{ cts.contactName }}</p>
+                <p class="mb-2"><strong>Phone No:</strong> {{ cts.contactPhoneNo }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer bg-light d-flex justify-content-between">
+            <a class="btn btn-outline-primary btn-sm" [routerLink]="['/contacts/view', cts.contactId]">
+              <i class="fa fa-eye"></i> View
+            </a>
+            <a class="btn btn-outline-info btn-sm" [routerLink]="['/contacts/edit', cts.contactId]">
+              <i class="fa fa-pencil"></i> Edit
+            </a>
+            <a class="btn btn-outline-danger btn-sm" (click)="deleteContact(cts.contactId)">
+              <i class="fa fa-trash"></i> Delete
+            </a>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+
+
+
